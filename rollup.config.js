@@ -17,6 +17,20 @@ const mjs = {
   },
 };
 
+const mod = {
+  plugins: [
+    resolve(),
+    typescript({ useTsconfigDeclarationDir: false }),
+    postcss()
+  ],
+  //external: Object.keys(dependencies),
+  input: 'lib/index.ts',
+  output: {
+    file: 'dist/pinch-zoom.mod.mjs',
+    format: 'esm'
+  },
+};
+
 const esm = {
   plugins: [
     typescript({ useTsconfigDeclarationDir: false }),
@@ -68,4 +82,4 @@ const iffeMin = {
   },
 };
 
-export default [mjs, esm, cjs, iffe, iffeMin];
+export default [mjs, esm, cjs, iffe, iffeMin, mod];
